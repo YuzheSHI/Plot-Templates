@@ -1,2 +1,2 @@
 # Matlab-Plot-Template
-A template for plotting via Matlab.
+A template for generating analysing plots via Matlab.
