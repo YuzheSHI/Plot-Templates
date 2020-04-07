@@ -1,0 +1,74 @@
+# http://www.graphviz.org/content/cluster
+digraph G {
+
+    subgraph cluster_0 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=burlywood1]
+        inc_exportq
+        label = "purchase proc"
+    }
+
+    subgraph cluster_1 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=azure]
+        enter_item -> check_item -> modify_next -> enter_item
+        label = "modify proc"
+    }
+
+    subgraph cluster_2 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=yellow]
+        enter_name -> check_name -> enter_pwd -> check_pwd
+        label = "sign_in proc"
+    }
+
+    subgraph cluster_3 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=aquamarine]   
+        calculate     
+        label = "calc proc"
+    }
+
+    subgraph cluster_4 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=cadetblue1]   
+        search -> search_next -> search 
+        search_next -> find    
+        label = "search proc"
+    }
+
+    subgraph cluster_5 {
+        style = filled;
+        color = lightgrey;
+        node [style=filled, color=chartreuse]   
+        print -> print_next -> print     
+        label = "print proc"
+    }
+
+    start -> enter_name;
+    check_name -> menu_visitor;
+    check_pwd -> enter_name
+    check_pwd -> menu_sudo
+	
+    menu_sudo -> calculate -> search
+    menu_sudo -> search
+    menu_visitor -> search
+    find -> calculate
+    find -> print
+    print -> find
+	search_next -> menu_sudo
+    search_next ->menu_visitor
+    find -> inc_exportq -> menu_visitor
+	find -> enter_item
+    modify_next -> search
+    menu_sudo -> end;
+    menu_visitor -> end;
+
+	start [shape=Mdiamond];
+	end [shape=Msquare];
+}
