@@ -1,0 +1,10 @@
+digraph graphname {
+	// This attribute applies to the graph itself
+	size="1,1";
+	// The label attribute can be used to change the label of a node
+	node [shape=ellipse]; start  "load successfully" "F, return";
+	node [shape=box];"Prompt User for name" "Prompt User for password" "Get User Name" "F, DI, SI ++; CL--" "Get Password"; 
+	node [shape=diamond]; "Equal Length?" "Equal Char?" "Comparison End?" "Equal pwd Length?" "Equal pwd Char?" "pwd Comparison End?";
+start->"Prompt User for name"->"Get User Name"->"Equal Length?"->"Equal Char?"->"Comparison End?"->"Prompt User for password"->"Get Password"->"Equal pwd Length?"->"Equal pwd Char?"->"pwd Comparison End?"->"load successfully"; "Comparison End?"->"F, DI, SI ++; CL--"->"Equal Char?"; "Equal Char?"->"F, return";"Equal Length?"->"F, return"; "Equal pwd Length?"->"F, return"; "Equal pwd Char?"->"F, return";"pwd Comparison End?"->"F, DI, SI ++; CL--"->"Equal pwd Char?";
+	
+}
