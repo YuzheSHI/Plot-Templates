@@ -1,0 +1,24 @@
+digraph graphname {
+	// This attribute applies to the graph itself
+	size="1,1";
+	// The label attribute can be used to change the label of a node
+	node[color="#0c59cd"] 
+
+	program_synthesis ->  emurative_search -> BottomUp_Search -> STUN
+	emurative_search -> TopDown_Search
+	Sketch -> SMT -> SAT
+	program_synthesis -> Constraint_Solving -> Sketch -> SAT -> DPLL->		CDCL
+	DPLL -> Chaff_SAT 
+	DPLL -> VSIDS
+	Constraint_Solving -> Conflict_Driven -> SMT
+	program_synthesis -> Stochastic_Search -> MCMC -> Metropolis_Hastings
+	Stochastic_Search -> Genetic_Programming
+	Stochastic_Search -> Machine_Learning -> Bayesian_Inference ->  	Unsupervised_Learning -> Length_Minimization
+	Machine_Learning -> Bayesian_Sampling
+	Stochastic_Search -> Neural_Program_Synthesis -> R3NN -> Deep_Coder -> Attention_seq2seq
+	Neural_Program_Synthesis -> Neural_RAM
+	Attention_seq2seq -> Sketch_Inference
+	Sketch -> Sketch_Inference
+	emurative_search -> REPL
+	MCMC -> REPL
+}
